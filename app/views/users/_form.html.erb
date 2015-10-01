@@ -1,0 +1,25 @@
+<div style="display: none" class="status alert alert-success"></div>
+<%= form_for @user, class: "contact-form row", id:"main-contact-form" do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+	<h3><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
+	<ul>
+	<% @user.errors.full_messages.each do |message| %>
+	  <li>* <%= message %></li>
+	<% end %>
+	</ul>
+      </div>
+    <% end %>
+    <div class="form-group col-md-12">
+	<%= f.text_field :first_name, placeholder: "First Name", required: :required, class: "form-control" %>
+    </div>    
+    <div class="form-group col-md-12">
+	<%= f.text_area :last_name, placeholder: "Lst Name", required: :required, id: :message, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-12">
+	<%= f.check_box :active %> <label> User status</label>
+    </div>  
+    <div class="form-group col-md-12">
+	<input type="submit" value="Submit" class="btn btn-primary pull-right" name="submit">
+    </div>
+<% end %>

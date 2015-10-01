@@ -1,0 +1,42 @@
+<section id="cart_items">
+    <div class="container">	    
+	    <div class="table-responsive cart_info">
+		    <table class="table table-condensed">
+			    <thead>
+				    <tr class="cart_menu">
+					    <td class="image">Icon</td>
+					    <td class="quantity">First Name</td>
+					    <td class="total">Last Name</td>
+					    <td class="total">Status</td>
+					    <td></td>
+					    <td></td>
+				    </tr>
+			    </thead>
+			    <tbody>
+				<% @users && @users.each_with_index do |user, index| %>
+				    <tr>
+					    <td class="cart_product">
+						    <a href=""><%= image_tag "404.png", size: "110x110" %></a>
+					    </td>
+					    <td class="cart_description">
+						    <h4><%= user.first_name %></h4>
+					    </td>
+					    <td class="cart_description">
+						    <h4><%= user.last_name %></h4>
+					    </td>
+					    <td class="cart_description">
+						    <h4><%= user.active ? "Active" : "Inactive" %></h4>
+					    </td>
+					    <td class="">
+						<%= link_to 'Edit ', edit_user_path(user.try(:id)), class: "cart_quantity_delete" %>
+					    </td>
+					    <td class="">
+						<%= link_to 'Remove', user_path(user.try(:id)), method: :delete, class: "cart_quantity_delete" %>
+					    </td>
+				    </tr>
+				  <% end %>
+			    </tbody>
+		    </table>
+	    </div>
+    </div>
+</section>
