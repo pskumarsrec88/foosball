@@ -25,7 +25,7 @@
 						    <h4><%= user.last_name %></h4>
 					    </td>
 					    <td class="cart_description">
-						    <h4><%= user.active ? "Active" : "Inactive" %></h4>
+						    <p><%= user.active ? "Active" : "Inactive" %></p>
 					    </td>
 					    <td class="">
 						<%= link_to 'Edit ', edit_user_path(user.try(:id)), class: "cart_quantity_delete" %>
